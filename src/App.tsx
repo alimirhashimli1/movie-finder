@@ -1,5 +1,5 @@
 // App.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./index.css";
 import Genres from './pages/Genres';
