@@ -72,7 +72,7 @@ const Home : React.FC  = () => {
 
   const fetchMovieTrailer = async (movieId: number) => {
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=523df445f9116db8d1551f659513ed16&language=en-US`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${import.meta.env.VITE_TMDB_API_KEY}&language=en-US`);
       const data = await response.json();
       const trailer = data.results.find((video: { type: string }) => video.type === 'Trailer');
       if (trailer) {
@@ -87,7 +87,7 @@ const Home : React.FC  = () => {
   
   const fetchLatestMovies = async () => {
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=523df445f9116db8d1551f659513ed16&language=en-US&page=1`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_API_KEY}&language=en-US&page=1`);
       const data = await response.json();
       const moviesData: FetchedMovie[] = data.results.map((movie: { 
         title: string, 
